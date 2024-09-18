@@ -1,0 +1,10 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg border-2 border-gray-200 shadow-md">
+        <h1 class="text-2xl font-bold mb-4 text-red-500">Error Page: <%= statusCode  %> <i class="fa-solid fa-exclamation"></i></h1>
+        
+        <p class="text-gray-700"><i class="fa-solid fa-triangle-exclamation"></i> Oops! <%= message %></p>
+        <a href="/listings" class="mt-4 inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Go back to home</a>
+    </div>
+</div>

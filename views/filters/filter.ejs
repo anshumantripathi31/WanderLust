@@ -1,0 +1,24 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="flex flex-wrap justify-center h-96">
+
+    <% for( let listing of allListing) { %>
+    <a href="/listings/<%= listing._id %>" class="flex flex-col items-center mx-2 my-4 bg-white rounded-md overflow-hidden shadow-md hover:shadow-lg transition duration-300 transform hover:scale-105">
+      <img src="<%= listing.image.url %>" alt="Image" class="w-80 h-80 rounded-xl">
+      
+      <div class=" card-details  py-4">
+        <div class="card-body mb-2 justify-start">
+      <p class="card-text font-bold text-xl truncate">
+          <%= listing.title %>
+      </p>
+      <p class="card-text">
+       &#8377;<%= listing.price.toLocaleString("en-IN") %>/night 
+      </p></div>
+      </div>
+      
+    </a>
+    <% } %>
+</div>
+
+   
+

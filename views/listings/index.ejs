@@ -1,0 +1,97 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+
+   
+    <!-- <form action="/listings/new" method="get">
+        <button>Create New Listing</button>
+    </form> -->
+    <!-- <div class="flex justify-center">
+        
+        <h1 class=" font-extrabold text-3xl py-4">All Listing</h1>
+    </div> -->
+    
+    
+  
+    
+    
+      <div class="flex justify-around mx-14 mt-6">
+        <div class="flex-col items-center opacity-70 hover:opacity-100">
+            <i class="fas fa-globe fa-lg"></i>
+            <a class="text-black pt-2" href="/listings/earthome">Earthome</a>
+        </div>
+        <div class="flex-col items-center opacity-70 hover:opacity-100">
+            <i class="fas fa-umbrella-beach fa-lg"></i>
+            <a class="text-black pt-2" href="/listings/beachfort">Beachfort</a>
+        </div>
+        <div class="flex-col items-center opacity-70 hover:opacity-100">
+            <i class="fas fa-tree fa-lg"></i>
+            <a class="text-black  pt-2" href="/listings/treefort">Treefort</a>
+        </div>
+        <div class="flex-col items-center opacity-70 hover:opacity-100">
+            <i class="fas fa-water fa-lg"></i>
+            <a class="text-black  pt-2" href="/listings/lakehouse">Lakehouse</a>
+        </div>
+        <div class="flex-col items-center opacity-70 hover:opacity-100">
+            <i class="fas fa-fire fa-lg"></i>
+            <a class="text-black  pt-2" href="/listings/trending">Trending</a>
+        </div>
+        <div class=" flex-col items-center opacity-70 hover:opacity-100">
+            <i class="fas fa-mountain fa-lg"></i>
+            <a class="text-black  pt-2" href="/listings/design_cave">Design Cave </a>
+        </div>
+        
+        <div class=" flex-col items-center opacity-70 hover:opacity-100">
+            <i class="fas fa-campground fa-lg"></i>
+            <a class="text-black  pt-2" href="/listings/camp">Camp</a>
+        </div>
+        <div class="flex-col items-center opacity-70 hover:opacity-100">
+            <i class="fas fa-swimming-pool fa-lg"></i>
+            <a class="text-black  pt-2" href="/listings/pool">Pool</a>
+        </div>
+        <div class="flex-col items-center opacity-70 hover:opacity-100">
+            <i class="fas fa-door-open fa-lg"></i>
+            <a class="text-black  pt-2" href="/listings/room">Room</a>
+        </div>
+        
+        <div class="flex-col items-center opacity-70 hover:opacity-100">
+            <i class="fas fa-tree fa-lg"></i>
+            <a class="text-black  pt-2" href="/listings/national_park">National Park</a>
+        </div>
+        
+
+  </div>
+
+  
+    <div class=" flex flex-wrap justify-center " >
+        
+        <% for( let listing of allListing) { %>
+            <a href="/listings/<%= listing._id %>">
+            <div class="my-4 card rounded  shadow-lg   w-80 mx-2 overflow-hidden ">
+                <div class="relative">
+                <img class="w-80 h-80 rounded-xl a" src="<%= listing.image.url %>" alt="Card image">
+                <!-- Text overlay -->
+               <div class="absolute top-0 left-0 right-0 bottom-0 flex  justify-start  hover:bg-gray-300 hover:opacity-20">
+                <div class="text-white text-center">
+                 <h2 class="text-xl font-semibold"></h2>
+                  <p class="text-3xl from-red-950">Card Details</p>
+                </div>
+                  </div>
+                </div>
+                <div class=" card-details  py-4">
+                  <div class="card-body mb-2">
+                <p class="card-text font-bold text-xl truncate">
+                    <%= listing.title %>
+                </p>
+                <p class="card-text">
+                 &#8377;<%= listing.price.toLocaleString("en-IN") %>/night 
+                </p></div>
+                </div>
+              </div>
+            </a>
+              <% } %> 
+    </div>
+
+    
+    
+    
+

@@ -1,0 +1,93 @@
+<% layout("/layouts/boilerplate") %>
+
+    <div class=" max-w-xl mx-auto bg-white rounded-lg  shadow-lg my-4">
+        <div class="px-6 py-2">
+          <h2 class="text-3xl font-semibold mb-2">Edit Details</h2>
+          <form action="/listings/<%= listing._id %>?_method=PUT" method="post"  id="editListingForm" novalidate enctype="multipart/form-data" >
+            <!-- Title -->
+            <div class="mb-2">
+              <label for="title" class="block text-gray-700 font-bold mb-2">Title:</label>
+
+              <input type="text" id="title" name="listing[title]" class="w-full px-2 py-1 rounded border focus:outline-none focus:border-blue-500 
+              transition duration-150 ease-in-out"  value="<%= listing.title %>" required/>
+              <p id="title-error" class="text-red-500 text-xs mt-1 hidden">Title is required <i class="fa-solid fa-circle-exclamation"></i>.</p>
+              <p id="title-success" class="text-green-500 text-xs hidden mt-1 ">Good Job <i class="fa-solid fa-circle-check"></i>  .</p>
+            </div>
+            <!-- Description -->
+            <div class="mb-2">
+              <label for="description" class="block text-gray-700 font-bold mb-2">Description:</label>
+              <textarea  id="description"  name="listing[description]" rows="3" class="form-textarea w-full rounded  focus:outline-none focus:border-blue-500 
+              transition duration-150 ease-in-out border px-2 py-1 " required ><%= listing.description %>   </textarea>
+              <p id="description-error" class="text-red-500 text-xs mt-1 hidden">Description is required <i class="fa-solid fa-circle-exclamation"></i>.</p>
+              <p id="description-success" class="text-green-500 text-xs mt-1 hidden ">Good Job. <i class="fa-solid fa-circle-check"></i></p>
+            </div>
+            <!-- Image URL -->
+            <div class="mb-3">Original Listing Image <br>
+            <img src="<%= originalImageUrl %>" class=""></div>
+            <div class="mb-2">
+              <label for="image" class="block text-gray-700 font-bold mb-2">Upload New Image</label>
+              <input type="file"  name="listing[image]" id="image" class="  form-input w-full rounded border focus:outline-none focus:border-blue-500 
+              transition duration-150 ease-in-out" >
+              <p id="image-error" class="text-red-500 text-xs mt-1 hidden">Image Url is required <i class="fa-solid fa-circle-exclamation"></i>.</p>
+              <p id="image-success" class="text-green-500 text-xs mt-1 hidden ">Good Job. <i class="fa-solid fa-circle-check"></i></p>
+              
+            </div>
+            <!-- Price -->
+            <div class="mb-4 flex flex-wrap justify-between">
+              <div>
+              <label for="price" class="block text-gray-700 font-bold mb-2">Price ($):</label>
+              <input type="number"  name="listing[price]" class=" px-2 py-1 form-input w-full  rounded border focus:outline-none focus:border-blue-500 
+              transition duration-150 ease-in-out "  min="0"  id="price" step="0.01" value="<%= listing.price %>" required >
+              <p id="price-error" class="text-red-500 text-xs mt-1 hidden">Price is required <i class="fa-solid fa-circle-exclamation"></i>.</p>
+              <p id="price-success" class="text-green-500 text-xs mt-1 hidden">Good Job. <i class="fa-solid fa-circle-check"></i></p>
+            </div>
+            <div class="">
+              <label for="price" class="block text-gray-700 font-bold mb-2"> Plz Reselect Category:</label>
+              <select name="listing[category]" id="category-dropdown" class="text-gray-300  border focus:outline-none focus:border-blue-500 
+              transition duration-150 ease-in-out rounded-md py-1 px-2 ">
+                <option value="">Select Category</option>
+                <option value="earthome" selected>Earthome</option>
+                <option value="beachfort">Beachfort</option>
+                <option value="treefort">Treefort</option>
+                <option value="lakehouse">Lakehouse</option>
+                <option value="trending">Trending</option>
+                <option value="design_cave">Design Cave National Park</option>
+                <option value="island">Island</option>
+                <option value="camp">Camp</option>
+                <option value="pool">Pool</option>
+                <option value="room">Room</option>
+                <option value="tropical">Tropical</option>
+                <option value="national_park">National Park</option>
+            </select>
+            </div>
+          </div>
+            <!-- Location -->
+            <div class="mb-2">
+              <label for="location"  class="block text-gray-700 font-bold mb-2">Location:</label>
+              <input type="text" id="location" name="listing[location]" class="form-input w-full  rounded border focus:outline-none focus:border-blue-500 
+              transition duration-150 ease-in-out px-2 py-1" value="<%= listing.location %>" required >
+              <p id="location-error" class="text-red-500 text-xs mt-1 hidden">Location is required <i class="fa-solid fa-circle-exclamation"></i>.</p>
+              <p id="location-success" class="text-green-500 text-xs mt-1 hidden">Good Job. <i class="fa-solid fa-circle-check"></i></p>
+            </div>
+            <!-- Country -->
+            <div class="mb-2">
+              <label for="country"  class="block text-gray-700 font-bold mb-2">Country:</label>
+              <input type="text" id="country" name="listing[country]" class="form-input w-full rounded border focus:outline-none focus:border-blue-500 
+              transition duration-150 ease-in-out  px-2 py-1" value="<%= listing.country %>" required >
+              <p id="country-error" class="text-red-500 text-xs mt-1 hidden">Country is required <i class="fa-solid fa-circle-exclamation"></i>.</p>
+              <p id="country-success" class="text-green-500 text-xs mt-1 hidden">Good Job .<i class="fa-solid fa-circle-check"></i></p>
+            </div>
+            <!-- Submit button -->
+            <div class="flex justify-start mt-4">
+              <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Save Changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <script src="/js/editscript.js"></script> 
+     
+       
+      
+    
+      
+
